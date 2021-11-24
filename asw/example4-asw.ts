@@ -12,17 +12,17 @@
 
 const TargetQuantity = 100;
 
+// extract conditions to array
+const redFruits: Array<string> = ['apple', 'strawberry', 'cherry', 'cranberries'];
+
 // if quantity not provided, default to one
 function checkRedFruitAndTargetQuantity(fruit: string = 'unknown', quantity: number = 1) {
-    // extract conditions to array
-    const redFruits: Array<string> = ['apple', 'strawberry', 'cherry', 'cranberries'];
-
     // condition 1: throw error early
     if (fruit === 'unknown')
         throw new Error('No fruit!');
 
     // condition 2: stop when fruit is not red
-    if (!redFruits.includes(fruit)) {
+    if (untreatedFruit(fruit)) {
         console.log('untreated fruit');
         return;
     }
@@ -34,6 +34,10 @@ function checkRedFruitAndTargetQuantity(fruit: string = 'unknown', quantity: num
         console.log('big quantity');
     }
 
+}
+
+function untreatedFruit(fruit: string) {
+    return !redFruits.includes(fruit);
 }
 
 // test results
